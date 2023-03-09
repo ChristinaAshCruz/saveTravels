@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -23,12 +26,17 @@ public class Expense {
 	private Long id;
 	
 	@NotNull
+	@Size(min=4, max=200)
 	private String expenseName;
 	@NotNull
+	@Size(min=4, max=200)
 	private String vendorName;
 	@NotNull
+	@Min(value=0)
+	@Max(value=2500)
 	private Double amountCost;
 	@NotNull
+	@Size(min=4, max=1000)
 	private String description;
 	
 	@Column(updatable=false)

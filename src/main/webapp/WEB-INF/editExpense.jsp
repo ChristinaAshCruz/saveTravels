@@ -12,10 +12,9 @@ pageEncoding="UTF-8"%>
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Save Travels</title>
+    <title>Project Name here</title>
     <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/style.css" />
-    <!-- change to match your file/naming structure -->
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -29,38 +28,10 @@ pageEncoding="UTF-8"%>
     <!-- change to match your file/naming structure -->
   </head>
   <body>
-    <h1 class="mb-4">✈️ Save Travels</h1>
+    <h1 class="mb-4">Edit Expense</h1>
     <div class="card p-4 mb-3" id="table-card">
-      <table class="table" id="directory">
-        <thead>
-          <tr id="header-row">
-            <th scope="col">Expense</th>
-            <th scope="col">Vendor</th>
-            <th scope="col">Amount</th>
-          </tr>
-        </thead>
-        <c:forEach var="expense" items="${allExpenses}">
-          <tr>
-            <td>
-              <a href="/expense/${expense.id}/edit">
-                <c:out value="${expense.expenseName}" />
-              </a>
-            </td>
-            <td>
-              <c:out value="${expense.vendorName}" />
-            </td>
-            <td>        
-              <fmt:formatNumber value="${expense.amountCost}" type="currency"/>
-            </td>
-            </td>
-          </tr>
-        </c:forEach>
-      </table>
-    </div>
-    <div class="card p-4" id="form-card">
-      <h3 class="mb-0">Add an Expense</h3>
-      <hr class="mb-4" />
-     <form:form action="/expense/new" method="POST" modelAttribute="newExpense">
+        <form:form action="/expense/${thisExpense.id}/edit" method="POST" modelAttribute="thisExpense">
+            <input type="hidden" name="_method" value="PUT" />
         <div class="mb-3">
           <form:label for="expenseName" class="form-label" path="expenseName">Expense:</form:label>
           <form:input type="text" class="form-control" name="expenseName" path="expenseName"/>
@@ -77,10 +48,9 @@ pageEncoding="UTF-8"%>
             <span class="input-group-text">$</span>
             <div class="form-floating">
               <form:input
-              type="number"
+              type="currency"
               step="0.01"
               min="0.01"
-              value="00.00"
               class="form-control p-2"
               path="amountCost"
               />

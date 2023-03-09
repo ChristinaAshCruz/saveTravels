@@ -6,7 +6,7 @@ body {
 	font-weight: 400;
 	font-size: 13pt;
 	background-color: #f9f1de;
-	color: #085F65;
+	color: #502005;
 	
 }
 
@@ -19,24 +19,38 @@ h1 {
 h3 {
 	font-family: 'Oswald', sans-serif;
 	font-weight:700;
+	color: #502005;
 }
 th {
 	font-size: 12pt;
-	color:#085F65;
+	color:#502005;
 }
 tr {
-	color:#085F65;
+	color:#502005;
 	border-color:#085F65;
+}
+thead{
+	background-color: rgba(8, 95, 101, .3);
+	
+}
+.form-control{
+	font-size: 13pt;
+	color: #033f42;
+	background-color: #fffdf9;
+	border-color: rgba(8, 95, 101, .3);
 }
 .card {
 	background-color: #f9f1de;
 	border: 3px solid #085F65;
 }
 .btn {
-	background-color: #085F65;
+	background-color: #502005;
 	color:#f9f1de;
-	border: 2px solid #085F65;
+	border: 2px solid #502005;
 }
 .btn:hover {
-	border: 2px solid #085F65;
+	border: 2px solid #502005;
+}
+.input-group-text{
+	background-color: rgba(8, 95, 101, .3);
 }
