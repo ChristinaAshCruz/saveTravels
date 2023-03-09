@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+body {
+	margin:30px;
+	font-family: 'Source Serif Pro', serif;
+	font-weight: 400;
+	font-size: 13pt;
+	background-color: #f9f1de;
+	color: #085F65;
+	
+}
+
+h1 {
+	font-family: 'Oswald', sans-serif;
+	font-weight:600;
+	font-size: 40pt;
+	color: #085F65;
+}
+h3 {
+	font-family: 'Oswald', sans-serif;
+	font-weight:700;
+}
+th {
+	font-size: 12pt;
+	color:#085F65;
+}
+tr {
+	color:#085F65;
+	border-color:#085F65;
+}
+.card {
+	background-color: #f9f1de;
+	border: 3px solid #085F65;
+}
+.btn {
+	background-color: #085F65;
+	color:#f9f1de;
+	border: 2px solid #085F65;
+}
+.btn:hover {
+	border: 2px solid #085F65;
+}
