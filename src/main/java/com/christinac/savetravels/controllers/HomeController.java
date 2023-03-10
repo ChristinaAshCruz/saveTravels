@@ -41,14 +41,14 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
-	@GetMapping("expense/{id}/edit")
+	@GetMapping("/expense/{id}/edit")
 	public String editExpense(@PathVariable("id") Long id, Model model) {
 		Expense thisExpense = expenseServ.findById(id);
 		model.addAttribute("thisExpense", thisExpense);
 		return "editExpense.jsp";
 	}
 	
-	@PutMapping("expense/{id}/edit")
+	@PutMapping("/expense/{id}/edit")
 	public String updateExpense(@Valid @ModelAttribute("thisExpense") Expense thisExpense, BindingResult result, @PathVariable("id") Long id) {
 		if(result.hasErrors()) {
 			return "editExpense.jsp";
@@ -58,4 +58,25 @@ public class HomeController {
 			return "redirect:/";
 		}
 	}
+	
+	@GetMapping("/expense/{id}/delete")
+	public String deleteExpense(@PathVariable("id") Long id) {
+		expenseServ.delete(id);
+		return "redirect:/";
+		
+	}
+	
+	@GetMapping("/expense/{id}")
+	public String viewExpense(@PathVariable("id") Long id, @ModelAttribute("expense") Expense expense, Model model) {
+		//use repo to findbyid 
+		Expense thisExpense = expenseServ.findById(id);
+		model.addAttribute("thisExpense", thisExpense);
+		return "viewExpense.jsp";
+		//return the view
+	}
+	
+	
+	
+	
+	
 }

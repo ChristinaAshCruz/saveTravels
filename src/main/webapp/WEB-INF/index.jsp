@@ -37,12 +37,13 @@ pageEncoding="UTF-8"%>
             <th scope="col">Expense</th>
             <th scope="col">Vendor</th>
             <th scope="col">Amount</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <c:forEach var="expense" items="${allExpenses}">
           <tr>
             <td>
-              <a href="/expense/${expense.id}/edit">
+              <a href="/expense/${expense.id}">
                 <c:out value="${expense.expenseName}" />
               </a>
             </td>
@@ -52,6 +53,9 @@ pageEncoding="UTF-8"%>
             <td>        
               <fmt:formatNumber value="${expense.amountCost}" type="currency"/>
             </td>
+            <td>
+              <a href="/expense/${expense.id}/edit" class="btn me-2">Edit</a>
+              <a href="/expense/${expense.id}/delete" class="btn me-0">Delete</a>
             </td>
           </tr>
         </c:forEach>
